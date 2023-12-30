@@ -24,7 +24,7 @@ function getCurrentBalance() {
   return putBalanceAmountFloat;
 }
 
-function updateBalance(dipositAmountFloat, isAdd) {
+function updateBalance(depositAmountFloat, isAdd) {
   const putBalanceAmount = document.getElementById("balance-total");
   /*
     const putBalanceAmountText = putBalanceAmount.innerText;
@@ -32,9 +32,9 @@ function updateBalance(dipositAmountFloat, isAdd) {
     */
   const putBalanceAmountFloat = getCurrentBalance();
   if (isAdd == true) {
-    putBalanceAmount.innerText = dipositAmountFloat + putBalanceAmountFloat;
+    putBalanceAmount.innerText = depositAmountFloat + putBalanceAmountFloat;
   } else {
-    putBalanceAmount.innerText = putBalanceAmountFloat - dipositAmountFloat;
+    putBalanceAmount.innerText = putBalanceAmountFloat - depositAmountFloat;
   }
 }
 
@@ -43,13 +43,13 @@ document
   .getElementById("deposit-button")
   .addEventListener("click", function () {
     // get amount in deposit
-    const dipositAmountFloat = getInputValue("deposit-amount");
-    if (dipositAmountFloat > 0) {
+    const depositAmountFloat = getInputValue("deposit-amount");
+    if (depositAmountFloat > 0) {
       // put amount in deposit
-      updateTotalAmount("deposit-total", dipositAmountFloat);
+      updateTotalAmount("deposit-total", depositAmountFloat);
 
       // also increase balance
-      updateBalance(dipositAmountFloat, true);
+      updateBalance(depositAmountFloat, true);
     }
   });
 
@@ -64,7 +64,7 @@ document
       // put amount in withdraw
       updateTotalAmount("withdraw-total", getWithdrawAmountValue);
 
-      // also decrese balance
+      // also decrease balance
       updateBalance(getWithdrawAmountValue, false);
     }
     if (getWithdrawAmountValue > currentBalance) {
